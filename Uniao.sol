@@ -4,15 +4,16 @@ contract UniaoEstavel {
     
     constructor (
         address payable Proponente1,
-        uint RGproponente1,
-        uint CPFproponente1,
+        string memory RGproponente1,
+        string memory CPFproponente1,
         address payable Proponente2,
-        uint RGproponente2,
-        uint CPFproponente2) public payable {
+        string memory RGproponente2,
+        string memory CPFproponente2) public payable {
     
     }
     
-    event UniaoAceita(string msg, uint256 time); //event Status(string msg, address user, uint256 time);
+    event UniaoProposta(string msg, uint256 time);
+    event UniaoAceita(string msg, uint256 time);
     event Presenteado(string msg, address _from, uint amount);
 
     event divorcio();
@@ -29,8 +30,10 @@ contract UniaoEstavel {
     
     }
     
-    function ProporUniao(address payable Proponente1) public view {
+    function ProporUniao(address payable Proponente1) public {
         require(msg.sender == Proponente1, "Proposta feita");
+        emit UniaoProposta("União Afetiva Proposta", now);
+
         
     }
     
@@ -45,8 +48,6 @@ contract UniaoEstavel {
         require(msg.sender.balance >= msg.value); 
         emit Presenteado("Presente Recebido", msg.sender, msg.value);
     }
-
-     
     
     //enum state
     // emitir tokens ERC20 para quem contratar pelo site
