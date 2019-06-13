@@ -17,20 +17,6 @@ const   contractABI = [
 		"constant": false,
 		"inputs": [
 			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "EnviarValor",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
 				"name": "Proponente1",
 				"type": "address"
 			}
@@ -76,51 +62,13 @@ const   contractABI = [
 		"type": "event"
 	},
 	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"name": "msg",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"name": "_from",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "Presenteado",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [],
-		"name": "divorcio",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [],
-		"name": "saqueAntecipado",
-		"type": "event"
-	},
-	{
 		"inputs": [
 			{
 				"name": "Proponente1",
 				"type": "address"
 			},
 			{
-				"name": "RGproponente1",
-				"type": "string"
-			},
-			{
-				"name": "CPFproponente1",
+				"name": "NomeProponente1",
 				"type": "string"
 			},
 			{
@@ -128,11 +76,7 @@ const   contractABI = [
 				"type": "address"
 			},
 			{
-				"name": "RGproponente2",
-				"type": "string"
-			},
-			{
-				"name": "CPFproponente2",
+				"name": "NomeProponente2",
 				"type": "string"
 			}
 		],
@@ -143,10 +87,10 @@ const   contractABI = [
 ]
     
     if (network === "4") {
-        contractAddress = "0x1022e2ea3d08c51bedfdac5750ce236b7a8a2972"; 
+        contractAddress = "0xbac023b3ed25c69e543851daa1c00d434643b636"; 
     
     } else {
-    contractAddress = "0x1022e2ea3d08c51bedfdac5750ce236b7a8a2972"; 
+    contractAddress = "0xbac023b3ed25c69e543851daa1c00d434643b636"; 
 }
 
 contract = web3.eth.contract(contractABI).at(contractAddress);
