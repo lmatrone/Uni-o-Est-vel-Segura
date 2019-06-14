@@ -1,0 +1,42 @@
+few pretty enlist canoe egg lawn napkin rose grant slice crunch relief
+BACKEND / FRONTEND (FULLSTACK)
+
+0xca35b7d915458ef540ade6068dfe2f44e8fa733c
+
+CSS - aplica para tag
+
+Classe de decoração para aplicar em várias tags e elementos diferentes
+"." no bootstrap = class (sem o ponto)
+Tipography
+Glyphicons - icones
+
+
+
+
+TAG
+#status {
+color = blue
+}
+
+ELEMENTO
+#status {
+color: blue;
+}
+
+CLASSE
+.letraverde {
+color: green;
+}
+
+<div class = "letraverde>
+123456
+</div>
+<p class = "letraverde">
+abcdef
+</p>
+
+
+
+
+
+O QUE TEM ANTES DAS CHAVES DIZ ONDE ELE VAI APLICAR
