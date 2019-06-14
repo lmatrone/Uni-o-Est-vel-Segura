@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Página de Teste de Web3 com jQuery e Bootstrap 3</title>
+</head>
+<body>
+<div class="container">
+        <h2>União Estável</h2> </body>
+        <br>
+        <form action="#" method="POST" name="formRegistro" id="formRegistro">
+                <div>
+                    <label for="endereco">Proponente 1: </label>
+                    <input type="text" name="NomeProponente1" id="endereco" size="45" />
+                </div>
+                <div>
+                    <label for="nomeProprietario">Proponente 2: </label>
+                    <input type="text" name="NomeProponente2" id="endereco" size="45" />
+                </div>
+                <div>
+                    <button onclick="registrarImovel()">Submeter</button>
+                </div>
+		</form>
+        <br>             
+        <div>
+              	<div id="statusTransacao">&nbsp;</div>
+        </div>
+        
+        <div>Status: </div> 
+        </body>
+           
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="connectToSmartContract.js"></script>
+    <script src="abi.js"></script>
+    <script>
+    
+    var frmPesquisa = document.formPesquisa;
+        function pesquisarImovel() {
+            event.preventDefault();
+            $("#resultadoPesquisa").html("");
+            contract.devolveNomeProprietario(frmPesquisa.matricula.value, function (erro, resultado) {
+                if (erro) {
+                    console.log("pesquisarImovel");
+                    console.error(erro);
+                    alert("Houve um erro ao pesquisar o nome do proprietário");
+                    frmPesquisa.matricula.value = "";
+                    return
+                }
+                $("#resultadoPesquisa").html("O proprietário do imóvel informado é: " + resultado);
+            })
+        }
+  
+    	var frmRegistro = document.formRegistro;
+        function AceitarUniao() {
+            event.preventDefault();
+            $("#statusTransacao").html("&nbsp;");
+            contract.UniaoEstavel(frmRegistro.Proponente1.value, frmRegistro.Proponente2.value, {from: web3.eth.accounts[0], gas: 3000000, value: 0}, function (erro, resultado) {
+                if (erro) {
+                    console.log("AceitarUniao");
+                    console.error(erro);
+                    alert("Erro");
+                    return
+                }
+                 waitForTxToBeMined(resultado, "#statusTransacao");
+            })
+        }
+    </script>
+</html>
